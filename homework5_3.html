@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form>input {
+            margin: 5px;
+        }
+
+        ul {
+            display: flex;
+        }
+
+        ul>li {
+            list-style-type: none;
+            padding: 15px;
+        }
+
+        li>a {
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Создать меню</h1>
+
+    <form action="#" id="form1">
+
+        Пункты меню: <input type="text" value="Главная, О компании, Новости" size="50" id="menu">
+        <br>
+        Цвет текста: <input type="color" value="#fdf5e6" id="textColor">
+        <br>
+        Цвет фона: <input type="color" value="#cfb1ff" id="backColor">
+        <br>
+        Цвет hover: <input type="color" value="#ffbb00" id="hoverColor">
+        <br>
+
+        <input type="submit" value="Создать меню" id="button1" onclick="makeColors()">
+
+
+    </form>
+
+    <ul id="ul1"> </ul>
+    <img id="pic1" src="" alt="">
+
+
+    <script>
+
+        
+
+
+        function makeColors() {
+
+            color1 = form1.textColor.value;
+            color2 = form1.backColor.value;
+            color3 = form1.hoverColor.value;
+
+
+            menuCode = ""
+
+            arrMenu = [];
+            arrMenu = form1.menu.value.split(', ');
+            console.log(arrMenu);
+
+
+            for (i = 0; i < arrMenu.length; i++) {
+                m = arrMenu[i];
+                menuCode += `<li style = "background-color: ${color2}" onmouseover = "hoverChange(this)" onmouseout = "normal(this)"><a href="#pic1" onclick="picture()" style ="color:${color1}"> ${arrMenu[i]} </a></li>`
+            }
+
+
+            ul1.innerHTML = menuCode;
+
+        }
+
+
+        function hoverChange(hovered) {
+            hovered.style.backgroundColor = `${color3}`
+        }
+
+        function normal(hovered) {
+            hovered.style.backgroundColor = `${color2}`
+        }
+
+
+
+
+        function picture() {
+
+            pic1.style.height = "100px";
+
+            let n=0;
+            let min = 1;
+            let max = 11;
+
+            n = Math.floor(min + Math.random() * (max - min + 1));
+
+            pic1.src = `images/${n}.jpg`;
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

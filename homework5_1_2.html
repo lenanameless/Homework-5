@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework5</title>
+</head>
+
+<body>
+
+    <script>
+
+        let input;
+        let myArr = [];
+        let numbers;
+        let number1;
+        let s = 0;
+        let maxIndex;
+        let maxValue = 0;
+        
+    
+
+        do {
+            numbers = prompt("Введите значение");
+            
+            if (numbers === null || numbers === "" || numbers.includes(" ")) {
+                input = false;
+                continue;
+            }   
+            
+            number1 = Number(numbers);
+
+            if (isNaN(number1)) {
+                input = false;
+            }
+
+            else {
+                myArr.push(number1);
+                input = true;
+            }     
+            
+            console.log(myArr);
+
+        } while (input == true);
+
+        for (i = 0; i<myArr.length; i++) {
+            s = s + myArr[i];
+
+            if (maxValue < myArr[i]) {
+                maxValue = myArr[i];
+            }
+
+            
+
+        }
+
+        maxIndex = myArr.indexOf(maxValue);
+
+
+        console.log(`Сумма всех элементов массива: ${s}`);
+        console.log(`Значение максимального элемента массива: ${maxValue}`);
+        console.log(`Номер максимального элемента массива: ${maxIndex}`);
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
